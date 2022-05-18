@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "web":"npm start",
+  "engines": {
+    "node": "16.13.2"
+  },
   "scripts": {
     "start": "node ./backend/server",
     "dev": "nodemon ./backend/server"

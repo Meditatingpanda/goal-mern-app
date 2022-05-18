@@ -53,8 +53,8 @@ const deleteGoals = asyncHandler(async (req, res) => {
     throw new Error("Goal Not Found");
   }
   //check user exits or not
-  const user = await User.findById(req.user.id);
-  if (!user) {
+  
+  if (!req.user) {
     res.status(400);
     throw new Error("User Not Exits");
   }
@@ -62,8 +62,9 @@ const deleteGoals = asyncHandler(async (req, res) => {
   //check it is the right user to delete data
   const temp = goal.user.toString();
   //string number compariosn occuring ifx this
+  
   if (temp == req.user.id) {
-    await Goal.findByIdAndDelete(req.params.id);
+    await goal.remove()
   } else {
     res.status(401);
     throw new Error("Access Denied");
