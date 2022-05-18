@@ -66,7 +66,7 @@ const authenticateUser = asyncHandler(async (req, res) => {
 //method GET api/users/me
 //access PRIVATE
 const getUser = asyncHandler(async (req, res) => {
-  res.json({ msg: "got!!" });
+  res.status(200).json(req.user);
 });
 
 //generate token
