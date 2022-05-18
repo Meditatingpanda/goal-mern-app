@@ -38,7 +38,7 @@ const deleteGoals = asyncHandler(async (req, res) => {
   }
   const deleteGoal = await Goal.findByIdAndDelete(req.params.id);
   if (deleteGoal) {
-    res.status(200).json({ msg: "Successfully deleted!!" });
+    res.status(200).json({id:req.params.id});
   } else {
     res.status(400);
     throw new Error("Internal Error");
