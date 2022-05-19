@@ -65,6 +65,7 @@ const deleteGoals = asyncHandler(async (req, res) => {
   
   if (temp == req.user.id) {
     await goal.remove()
+    res.status(400).json({_id:goal.id})
   } else {
     res.status(401);
     throw new Error("Access Denied");
